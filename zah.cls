@@ -1,3 +1,6 @@
+% Gardener's LaTeX template
+\newcommand{\templversion}{\mathbb{v2021.2}}
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{zah}
 
@@ -81,7 +84,7 @@
   filecolor=default-filecolor,  % local files
   citecolor=default-citecolor,  % citation links
   urlcolor=default-urlcolor,    % url links
-  pdfcreator={Gardener's LaTeX template}
+  pdfcreator={Gardener's LaTeX template \templversion}
 }
 \urlstyle{same} % disable monospaced font for URLs
 
