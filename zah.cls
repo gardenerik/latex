@@ -15,10 +15,8 @@
     includeheadfoot,                    % chcem header a footer
 ]{geometry}
 
-\RequirePackage[utf8]{inputenc} % encoding UTF-8
 \RequirePackage{graphicx}       % obrazky
 \RequirePackage{titlesec}       % custom nadpisy sekcii
-\RequirePackage{lastpage}       % zistenie cisla poslednej strany
 \RequirePackage{booktabs}       % pekne tabulky - \midrule, \toprule...
 \RequirePackage{multirow}       % viacriadkove bunky v tabulkach
 \RequirePackage{siunitx}        % fyzikalne jednotky
@@ -33,12 +31,13 @@
 \setlength{\parskip}{6pt}       % medzera medzi odsekmi
 
 % obsah headeru
+\fancyhead{}
 \fancyhead[L]{\large\scshape\@title}
-\fancyhead[R]{}
 
 % obsah footeru
-\fancyfoot[R]{\@author}
-\fancyfoot[C]{\small \thepage\ / \pageref{LastPage}}
+\fancyfoot{}
+\fancyfoot[L]{\@author}
+\fancyfoot[R]{\small \thepage}
 
 % chceme ciary pri footeri a headeri
 \renewcommand{\headrulewidth}{0.4pt}
@@ -65,3 +64,41 @@
 % subsekcie chcem cislovat len ich cislom (t.j. nie 1.1. ale len 1.)
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \titleformat{\subsection}{\bfseries\large}{\thesubsection.}{1em}{}
+
+% nastavenie odkazov
+\RequirePackage[unicode]{hyperref}  % links
+\RequirePackage{xcolor}             % colors
+\RequirePackage{xurl}               % rozdelenie dlhych linkov na viac riadkov
+
+\definecolor{default-filecolor}{HTML}{A50000}
+\definecolor{default-citecolor}{HTML}{4077C0}
+\definecolor{default-urlcolor}{HTML}{4077C0}
+
+\hypersetup{
+  hidelinks,
+  colorlinks=true,
+  linkcolor=.,                  % internal links
+  filecolor=default-filecolor,  % local files
+  citecolor=default-citecolor,  % citation links
+  urlcolor=default-urlcolor,    % url links
+  pdfcreator={Gardener's LaTeX template}
+}
+\urlstyle{same} % disable monospaced font for URLs
+
+% defaultne nech je figure tam, kde sa nachadza v tex zdrojaku
+\RequirePackage{float}
+\floatplacement{figure}{H}
+
+% code highlighting
+\RequirePackage{minted}
+\usemintedstyle{tango}
+
+% source sans a source code fonty
+\RequirePackage[default]{sourcesanspro}
+\RequirePackage{sourcecodepro}
+
+% href in footnote
+% \DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+
+% lepsie figure captions
+\RequirePackage[skip=4mm, labelfont=bf, singlelinecheck=false, justification=raggedright]{caption}
