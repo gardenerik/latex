@@ -1,4 +1,5 @@
 % Gardener's LaTeX template
+% https://github.com/gardenerik/latex
 \newcommand{\templversion}{v2023.1}
 
 \NeedsTeXFormat{LaTeX2e}
@@ -135,5 +136,6 @@
 
 % href in footnote
 \DeclareOption{hreffootnote}{\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}}
+\DeclareOption{twoside}{\geometry{inner=35mm}}
 
 \ProcessOptions\relax
