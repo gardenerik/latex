@@ -1,6 +1,6 @@
 % Gardener's LaTeX template
 % https://github.com/gardenerik/latex
-\newcommand{\templversion}{v2023.1}
+\newcommand{\templversion}{v2023.2}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{zah}
@@ -120,7 +120,7 @@
 
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 
-\renewcommand{\maketitlehooka}{\pagestyle{empty}\vspace{2cm}\hrulefill}
+\renewcommand{\maketitlehooka}{\thispagestyle{empty}\vspace{2cm}\hrulefill}
 \pretitle{\begin{center}\bfseries\Huge}
 \posttitle{\end{center}}
 
@@ -129,7 +129,10 @@
 
 \predate{\vspace{-1cm}\begin{center}\small}
 \postdate{\end{center}}
-\renewcommand{\maketitlehookd}{\hrulefill\cleardoublepage\setcounter{page}{1}}
+\renewcommand{\maketitlehookd}{\hrulefill\clearpage}
+
+\let\oldmaketitle\maketitle
+\renewcommand{\maketitle}{\oldmaketitle\cleardoublepage\thispagestyle{fancy}\setcounter{page}{1}}
 
 % tightlist
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
